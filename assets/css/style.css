@@ -1,0 +1,453 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --main-color: rgb(25 197 181);
+    --secound-color: white;
+    --three-color: rgb(27 51 52 / 90%);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+/* media screen */
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* start header */
+header {
+    color: var(--secound-color);
+    background-color: var(--three-color);
+    text-transform: uppercase;
+    padding: 20px 0px;
+}
+
+header .container nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+header .container nav .spin {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+
+}
+
+header .container nav p {
+    animation-name: color;
+    animation-delay: 2.5s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    from {
+        position: relative;
+        left: -900px;
+    }
+
+    to {
+        position: relative;
+        left: 0;
+    }
+}
+
+@keyframes color {
+    0% {
+        color: var(--secound-color);
+        ;
+    }
+
+    50% {
+        color: var(--main-color);
+    }
+
+    100% {
+        color: var(--secound-color);
+    }
+}
+
+header .container nav ul {
+    display: flex;
+    list-style: none;
+    font-size: 13px;
+}
+
+header .container nav i {
+    display: none;
+}
+
+header .container nav .icon {
+    width: 50px;
+    text-align: center;
+}
+
+@media (max-width:500px) {
+    header .container nav i {
+        display: block;
+    }
+
+    header .container nav ul {
+        display: none;
+    }
+
+    header .container nav .icon:hover+ul {
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--three-color);
+        padding: 30px 35px;
+        gap: 50px;
+    }
+
+    header .container nav .icon:hover+ul::after {
+        content: "";
+        border: 10px solid;
+        border-color: transparent transparent var(--three-color);
+        position: absolute;
+        top: -20px;
+        right: 0px;
+        z-index: 10;
+    }
+}
+
+header .container nav ul li a {
+    color: var(--secound-color);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.4s;
+}
+
+header .container nav ul li a:hover {
+    color: var(--main-color);
+    padding: 10px;
+}
+
+@media (max-width:400px) {
+    header .container nav ul li a:hover {
+        color: var(--main-color);
+        padding: 0px;
+    }
+}
+
+/* end header */
+
+/* hero */
+.hero {
+    height: calc(100vh - 62px);
+}
+
+.hero .content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secound-color);
+}
+
+.hero .content img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    transition: 0.4s;
+}
+
+.hero .content img:hover {
+    transform: rotate(5deg) scale(1.3);
+}
+
+.hero .content .content-hero {
+    background-color: var(--three-color);
+    padding: 20px;
+}
+
+.special-head {
+    margin: 0px auto;
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+.special-head .star {
+    display: inline;
+    position: relative;
+}
+
+.special-head h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    animation-name: color;
+    animation-delay: 2.5s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.special-head .star::before {
+    content: "";
+    position: absolute;
+    background-color: var(--secound-color);
+    width: 50px;
+    height: 2px;
+    left: 25px;
+    top: 10px;
+}
+
+.special-head .star::after {
+    content: "";
+    position: absolute;
+    background-color: var(--secound-color);
+    width: 50px;
+    height: 2px;
+    right: 25px;
+    top: 10px;
+}
+
+.hero .content p {
+    margin-top: 20px;
+}
+
+/* end hero */
+
+/* portfolio */
+
+.portfolio .container .image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio .container .image .content {
+    width: 300px;
+    background-color: var(--three-color);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+
+.portfolio .container .image .content .img {
+    background-color: white;
+    border-radius: 50%;
+    width: 150px;
+    margin: 0px auto;
+    height: 150px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.portfolio .container .image .content:hover {
+    background-color: var(--main-color);
+}
+
+.portfolio .container .image .content:hover .img {
+    transform: rotate(3deg) scale(1.1);
+}
+
+.portfolio .container .image .content:hover .img img {
+    width: 160px;
+}
+
+.portfolio .container .image .content img {
+    width: 150px;
+    transition: 0.4s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* end portfolio */
+
+/* about */
+
+.about .container .text {
+    display: flex;
+    justify-content: center;
+    text-align: initial;
+    gap: 50px;
+}
+
+.about .container .text .part-1 {
+    width: 300px;
+}
+
+.about .container .text .part-2 {
+    width: 300px;
+}
+
+.about .container .download {
+    margin: 40px auto 0px;
+    border: 1px solid;
+    width: fit-content;
+    padding: 15px 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.about .container .download a {
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.about .container .download:hover {
+    background-color: var(--three-color);
+    padding: 15px 20px;
+    border: none;
+}
+
+/* end about */
+/* contact me */
+
+.contact-me .container .form form .content input,
+textarea {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    padding: 30px 0px;
+}
+
+.contact-me .container .form form .button {
+    position: relative;
+}
+
+.contact-me .container .form form .button input[type="submit"] {
+    position: absolute;
+    left: 25%;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.contact-me .container .form form .button input[type="submit"]:hover {
+    background-color: var(--three-color);
+    padding: 10px;
+}
+
+/* end contact me */
+
+/* footer */
+footer {
+    background-color: var(--three-color);
+    color: white;
+}
+
+footer .container .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 60px 0px;
+    gap: 10px;
+}
+
+footer .container .content .part-1 {
+    text-transform: capitalize;
+}
+
+footer .container .content .part-2 .icon a {
+    color: white;
+}
+
+
+footer .container .content .part-2 .icon i {
+    margin: 10px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+footer .container .content .part-2 .icon i:hover {
+    background-color: var(--main-color);
+    border: none;
+}
+
+footer .container .content .part-3 a {
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+
+footer .copy-right p {
+    text-align: center;
+    background-color: black;
+    padding: 10px 0px;
+}
+
+/* end footer */
+.margin {
+    margin: 35px auto;
+}
+
+
+.width {
+    width: 300px;
+    text-align: center;
+}
+
+.width h3 {
+    text-transform: uppercase;
+    margin: 20px;
+}
+
+.padding {
+    padding: 50px 0px;
+    text-align: center;
+    color: var(--secound-color);
+}
+
+.background-1 {
+    background-color: var(--main-color);
+}
+
+.background-2 {
+    color: black;
+}
+
+.background-2 .special-head .star::after {
+    background-color: black;
+}
+
+.background-2 .special-head .star::before {
+    background-color: black;
+}
